@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "per_segment_anything"
+version = "0.1.0"
+description = "Personalize Segment Anything Model with 1 Shot in 10 Seconds"
+authors = [
+  {name = "Renrui Zhang", email = "zhangrenrui@pjlab.org.cn"},  
+]
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["computer vision", "segmentation", "personalization"]
+license = {text = "MIT"}
+
+packages = [
+  {include = "per_segment_anything"},
+]
+dependencies = [
+    "matplotlib",
+    "tqdm",
+    "os",
+    "numpy",
+    "warnings",
+    "argparse",
+    "opencv-python",
+]
+
+[project.optional-dependencies]
+tests = [
+    "pytest",
+    "pytest-cov",
+]
+dev = [
+    "pylama",
+    "black",
+    "flake8",
+]
+build = [
+    "hatch",
+    "build",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.ruff]
+ignore = ["F401", "F841", "F722", "E501"]
+
+[tool.hatch.build]
+dev-mode-dirs = ["."]
+requirements = "requirements.txt"
+
+[tool.hatch.urls]  
+Documentation = "https://github.com/ZrrSkywalker/Personalize-SAM"
+Issues = "https://github.com/ZrrSkywalker/Personalize-SAM/issues"
+Source = "https://github.com/ZrrSkywalker/Personalize-SAM"
